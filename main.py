@@ -96,7 +96,16 @@ def index():
 def project_route():
     return f"""
 
-
+<h1> Belum selesai nigga</h1>
+<style>
+h1{{ 
+font-size:70px;
+}}
+</style>
+<img src="{url_for('static',filename='lmao.png')}" width="700px"><br>
+<button>
+<a href ="{url_for('index')}">Balik gih</a>
+</button>
 """
 
 if __name__ == "__main__": 
