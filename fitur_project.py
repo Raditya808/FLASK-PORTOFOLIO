@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint,url_for
 
 second2 = Blueprint('second', __name__, static_folder='static') # membuat blueprint di untuk di panggil ke main.py
 
