@@ -1,8 +1,12 @@
 from flask import Blueprint, url_for
 
-
+# membuat app dan menjadikan nya @route() bernama second3 
 second3 = Blueprint('kontak',__name__,static_folder='static')
-# menerima parameter second3 dari file main.py lewat app.register.blueprint lalu membuat syntax blueprint menerima kontak sebagai parameter yang nantinya file main.py akan membuat button sehingga kontak dan hubungi akan dikirim sebagai button di file main.py 
+# menerima parameter second3 dari file main.py lewat 
+# app.register.blueprint lalu membuat syntax 
+# blueprint menerima kontak sebagai parameter 
+# yang nantinya file main.py akan membuat button 
+# sehingga kontak dan hubungi akan dikirim sebagai button di file main.py 
 
 
 @second3.route('/contactus')
@@ -16,11 +20,12 @@ def hubungi():
  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="{url_for('static',filename='contactus.css')}">
+ <link rel="icon" href="{url_for('static',filename='Tachyon.jpg')}">
 </head>
 <body>
 
     <div class="nav-container">
-      <a href="/">Home</a>
+      <a href="{url_for('afterlog')}">Home</a>
        <!-- ke rute main.py -->
   </div>
 
