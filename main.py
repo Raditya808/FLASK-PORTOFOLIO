@@ -150,20 +150,17 @@ def afterlog():
         <div class="content-wrapper">
             <br>
             <!-- button untuk ke rute Blurprint('second') di fitur_project dan second adalah function nya-->
-            <button>
-                <a href="{url_for('second.prjct')}">View Projects</a>
-            </button>
+            <button><a href="{url_for('second.prjct')}">View Projects</a></button>
             
             <!-- button untuk ke rute Blueprint('kontak') di contactus.py hubungi adalah function nya-->
-            <button>
-                <a href="{url_for('kontak.hubungi')}">Lets Connect</a>
-            </button>
+            <button><a href="{url_for('kontak.hubungi')}">Lets Connect</a></button>
 
             <!-- button untuk ke ruute index '/' -->
-            <button>
-            <a href="{url_for("index")}">Go Back To Input?</a>
-            </button>
+            <button><a href="{url_for("index")}">Go Back To Input?</a></button>
             
+        </div>
+
+
             <section class="header-container">
                 <h2>Hey {session['username']}! I'm Raditya</h2>
                  <img src="static/Raditya.jpeg" height="200px">

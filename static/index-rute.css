@@ -1,9 +1,8 @@
-/* 
-   Elegant Portfolio v5 - Final w/ Custom Scrollbar
-   Theme: "Silent Luxury"
-   Animation: Very Slow Staggered Entrance
-   Images: Full Color
-   Features: Visible Custom Scrollbar
+/* Elegant Portfolio v5 - Final w/ Custom Scrollbar
+    Theme: "Silent Luxury"
+    Animation: Very Slow Staggered Entrance
+    Images: Full Color
+    Features: Visible Custom Scrollbar
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
@@ -55,10 +54,15 @@ a {
   text-align: center;
 }
 
-/* === Header === */
+/* === Header - FIXED CENTER === */
 .header-container {
   margin: 40px 0 60px;
-  /* Removed blanket animation to animate children individually */
+  display: flex;
+  /* Tambahan biar bisa center */
+  flex-direction: column;
+  /* Tetap berurutan atas ke bawah */
+  align-items: center;
+  /* Menarik semua isi ke tengah */
 }
 
 .header-container h2:first-child {
@@ -70,10 +74,14 @@ a {
   animation: slowEntrance 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.5s;
 }
 
-/* === Profile Image === */
+/* === Profile Image - FIXED CENTER === */
 .profile-container {
   margin: 20px auto 30px;
   perspective: 1000px;
+  display: flex;
+  /* Tambahan biar kontainer flex */
+  justify-content: center;
+  /* Pastikan isinya di tengah */
 }
 
 .profile-pic {
@@ -95,6 +103,12 @@ a {
   border-color: var(--text-main);
 }
 
+/* === Text Content - FIXED CENTER === */
+.content-text {
+  text-align: center;
+  /* Pastikan semua teks di dalam ke tengah */
+}
+
 .content-text h2 {
   font-size: 1.1rem;
   text-transform: uppercase;
@@ -111,6 +125,7 @@ a {
   font-weight: 300;
   max-width: 500px;
   margin: 0 auto;
+  /* Memastikan blok paragraf di tengah */
   line-height: 1.8;
   opacity: 0;
   animation: slowEntrance 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 1.5s;
@@ -129,10 +144,6 @@ a {
   animation: slowEntrance 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.2s;
 }
 
-/* Add stagger for second button if possible via nth-child, 
-   but since they are separate <button> tags, we can use general sibling selector or just let them appear together 
-   or use nth-of-type on the wrapper context if they are direct children.
-*/
 .content-wrapper>button:nth-of-type(2) {
   animation-delay: 0.4s;
 }
