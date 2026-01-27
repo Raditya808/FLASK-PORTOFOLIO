@@ -26,106 +26,111 @@ def index():
         return redirect(url_for('afterlog'))
     return f"""
     <!DOCTYPE html>
-        <html>
-            <head>
-                <title>
-                    WELCOME SAARRR
-                </title>
-                 <link rel="icon" href="{url_for('static',filename='Tachyon.jpg')}">
-                <style>
-             * {{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}}
+    <html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WELCOME SAARRR</title>
+        <link rel="icon" href="{url_for('static', filename='Tachyon.jpg')}">
+        <style>
+            * {{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }}
 
-body {{
-  font-family: 'Inter', sans-serif;
-  background: #0d0d0d;
-  color: #f5f5f5;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}}
+            body {{
+                font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+                background: #0d0d0d;
+                color: #f5f5f5;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px; /* Jarak aman untuk layar kecil */
+            }}
 
-.form_user {{
-  text-align: center;
-  animation: fadeIn 0.6s ease-out;
-}}
+            .form_user {{
+                width: 100%;
+                max-width: 400px; /* Sedikit lebih lebar untuk desktop */
+                text-align: center;
+                animation: fadeIn 0.6s ease-out;
+            }}
 
-h1 {{
-  font-size: 3rem;
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  margin-bottom: 2rem;
-}}
+            h1 {{
+                font-size: clamp(1.5rem, 8vw, 2.5rem); /* Ukuran font adaptif */
+                font-weight: 300;
+                letter-spacing: 0.1em;
+                margin-bottom: 2rem;
+            }}
 
-input[type="text"] {{
-  width: 100%;
-  max-width: 300px;
-  padding: 12px 16px;
-  background: #1a1a1a;
-  border: 1px solid #333;
-  color: #f5f5f5;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  transition: border-color 0.3s;
-}}
+            form {{
+                display: flex;
+                flex-direction: column;
+                gap: 15px; /* Jarak antar input */
+            }}
 
-input[type="text"]:focus {{
-  outline: none;
-  border-color: #f5f5f5;
-}}
+            input[type="text"] {{
+                width: 100%;
+                padding: 16px;
+                background: #1a1a1a;
+                border: 1px solid #333;
+                color: #f5f5f5;
+                font-size: 1rem;
+                border-radius: 4px; /* Sedikit lengkungan agar modern */
+                transition: all 0.3s;
+                -webkit-appearance: none; /* Hilangkan shadow default iOS */
+            }}
 
-input[type="text"]::placeholder {{
-  color: #666;
-}}
+            input[type="text"]:focus {{
+                outline: none;
+                border-color: #f5f5f5;
+                background: #252525;
+            }}
 
-input[type="submit"] {{
-  width: 100%;
-  max-width: 300px;
-  padding: 12px 24px;
-  background: transparent;
-  border: 1px solid #333;
-  color: #f5f5f5;
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s;
-}}
+            input[type="submit"] {{
+                width: 100%;
+                padding: 16px;
+                background: #f5f5f5;
+                border: 1px solid #f5f5f5;
+                color: #0d0d0d;
+                font-size: 0.875rem;
+                font-weight: 700;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                cursor: pointer;
+                transition: all 0.3s;
+                border-radius: 4px;
+            }}
 
-input[type="submit"]:hover {{
-  background: #f5f5f5;
-  color: #0d0d0d;
-}}
+            input[type="submit"]:hover {{
+                background: transparent;
+                color: #f5f5f5;
+            }}
 
-@keyframes fadeIn {{
-  from {{
-    opacity: 0;
-    transform: translateY(10px);
-  }}
-  to {{
-    opacity: 1;
-    transform: translateY(0);
-  }}
-}}
+            @keyframes fadeIn {{
+                from {{ opacity: 0; transform: translateY(10px); }}
+                to {{ opacity: 1; transform: translateY(0); }}
+            }}
 
-                </style>
-            </head>
-            <body>
-                <div class="form_user">
-                <form method="POST">
-                    <input type="text" name="nama" placeholder="Siapa Namamu Tuan?"><br>
-                    <input type="submit" value="Kirim">
-                </form>
-                </div>
-            </body>
-        </html>
+            /* Optimasi khusus HP layar sangat kecil */
+            @media (max-width: 380px) {{
+                h1 {{ font-size: 1.2rem; }}
+                input[type="submit"] {{ letter-spacing: 0.1em; }}
+            }}
+        </style>
+    </head>
+    <body>
+        <div class="form_user">
+            <h1>WELCOME</h1>
+            <form method="POST">
+                <input type="text" name="nama" placeholder="Siapa Namamu Tuan?" required>
+                <input type="submit" value="Masuk">
+            </form>
+        </div>
+    </body>
+    </html>
     """
-
 @app.route('/afterlog')
 def afterlog():
         return f"""
